@@ -1,9 +1,19 @@
 import React from 'react';
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
+import McqQuestions from './containers/McqQuestions';
+const App =()=> {
+    const routes = (
+        <Switch>
+            <Route path="/" exact component={McqQuestions} />
+            <Redirect to="/" />
+        </Switch>
+    );
 
-const App = (props)=>{
-    return(
-        <div>Hello Web</div>
-    )
+    return (
+        <div>
+            {routes}
+        </div>
+    );
 };
 
-export default App;
+export default withRouter( ( App ) );
